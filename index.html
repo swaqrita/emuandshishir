@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Infinite Love Universe ❤️</title>
+    <!-- Cinematic Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Infinite Background Layer -->
+    <div id="vibe-background" class="vibe-bg">
+        <canvas id="heart-canvas"></canvas>
+    </div>
+
+    <!-- Global Music Control -->
+    <div class="global-controls">
+        <button id="music-btn" class="icon-btn"><i class="fas fa-music"></i></button>
+        <div class="love-status glass-panel">
+            <i class="fas fa-heart-pulse"></i>
+            <span>Love Level: <b id="love-level-val">1</b></span>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <main id="app-viewport">
+        
+        <!-- HUB SCREEN (The Central Universe) -->
+        <section id="hub-screen" class="view active">
+            <div class="hub-header">
+                <h1 id="hub-quote">"Every heartbeat belongs to you."</h1>
+            </div>
+
+            <!-- Heart Connection Visual -->
+            <div class="heart-connection">
+                <div class="heart-node node-shishir">
+                    <div class="heart-shape">❤️</div>
+                    <span>A. S. M. Shishir</span>
+                </div>
+                <div class="connection-thread">
+                    <svg viewBox="0 0 100 20">
+                        <path id="glow-thread" d="M0,10 Q50,0 100,10" fill="none" stroke="url(#thread-grad)" stroke-width="2" />
+                        <defs>
+                            <linearGradient id="thread-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#ff6a88" />
+                                <stop offset="100%" style="stop-color:#9d50bb" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="heart-node node-emu">
+                    <div class="heart-shape">❤️</div>
+                    <span>Israt Jahan Emu</span>
+                </div>
+            </div>
+
+            <div class="vibe-grid">
+                <button class="vibe-card" onclick="app.nav('arcade')">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Vibe Arcade</span>
+                </button>
+                <button class="vibe-card" onclick="app.nav('letter')">
+                    <i class="fas fa-envelope-open-heart"></i>
+                    <span>Love Letter</span>
+                </button>
+                <button class="vibe-card" onclick="app.nav('memories')">
+                    <i class="fas fa-images"></i>
+                    <span>Memories</span>
+                </button>
+                <button class="vibe-card" onclick="app.nav('secret')">
+                    <i class="fas fa-key"></i>
+                    <span>Secret Unlock</span>
+                </button>
+            </div>
+            
+            <p class="hub-footer">Two hearts, one endless loop 💞</p>
+        </section>
+
+        <!-- ARCADE SCREEN -->
+        <section id="arcade-screen" class="view">
+            <div class="arcade-container glass-panel">
+                <div id="game-stage">
+                    <!-- Mini games inject here -->
+                </div>
+                <div id="game-overlay" class="hidden">
+                    <h2 id="reward-text">You're Amazing! ❤️</h2>
+                    <button onclick="app.finishGame()" class="primary-btn">Claim Reward & Return</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOVE LETTER SCREEN -->
+        <section id="letter-screen" class="view">
+            <div class="letter-card glass-panel">
+                <div class="typing-text" id="letter-content"></div>
+                <button onclick="app.nav('hub')" class="primary-btn">Back to Hub</button>
+            </div>
+        </section>
+
+        <!-- MEMORIES SCREEN -->
+        <section id="memories-screen" class="view">
+            <div class="memories-container">
+                <div id="memory-deck"></div>
+                <button onclick="app.nav('hub')" class="primary-btn">Back to Hub</button>
+            </div>
+        </section>
+
+        <!-- SECRET SCREEN -->
+        <section id="secret-screen" class="view">
+            <div class="secret-card glass-panel">
+                <h2>Secret Messages 🔐</h2>
+                <div class="input-group">
+                    <input type="password" id="secret-key" placeholder="Enter special date or key...">
+                    <button onclick="app.checkSecret()" class="primary-btn">Unlock</button>
+                </div>
+                <div id="secret-reveal" class="hidden"></div>
+                <button onclick="app.nav('hub')" class="primary-btn">Back to Hub</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Audio assets -->
+    <audio id="bg-audio" loop>
+        <source src="audio/deeplove.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
